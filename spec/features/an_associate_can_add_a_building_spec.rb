@@ -23,9 +23,8 @@ feature "An associate can add a building", %Q{
     click_button "Add Building"
 
     expect(page).to have_content "Building was created successfully"
-    expect(page).to have_content "Add Building"
+    expect(page).to have_button "Add Building"
   end
-
 
   scenario "An associate does not specify all the required information when enterting a buildings" do
     visit 'buildings/new'
