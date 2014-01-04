@@ -5,7 +5,7 @@
   <%= f.input :city %><br>
   <%= f.input :state, collection: @building.us_states %><br>
   <%= f.input :zip_code, label: "Zip Code" %><br>
-  <%= f.association :owner, collection: Owner.all, label_method: :first_name, prompt: "Choose an owner"  %><br>
+  <%= f.association :owner, label_method: :first_name, value_method: :id, prompt: "Choose an owner"  %><br>
   <%= f.input :description %><br>
   <%= f.button :submit, "Add Building" %><br>
 <% end %>
