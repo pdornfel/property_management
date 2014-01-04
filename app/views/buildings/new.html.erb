@@ -1,11 +1,11 @@
 <h1>Add Buildings</h1>
 
 <%= simple_form_for @building do |f| %>
-  <%= f.input :address %>
+  <%= f.input :address %><br>
   <%= f.input :city %><br>
   <%= f.input :state, collection: @building.us_states  %><br>
-  <%= f.input :zip_code, label: "Zip Code" %>
+  <%= f.input :zip_code, label: "Zip Code" %><br>
   <%= f.input :description %><br>
-  <%= f.button :submit, "Add Building" %>
+  <%= f.button :submit, "Add Building" %><br>
 <% end %>
 

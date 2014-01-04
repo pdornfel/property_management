@@ -23,22 +23,44 @@ feature "An associate can add a building", %Q{
     click_button "Add Building"
 
     expect(page).to have_content "Building was created successfully"
-    expect(page).to have_content "33 Harrison Ave"
-    expect(page).to have_content "Boston"
-    expect(page).to have_content "Massachusetts"
-    expect(page).to have_content "02111"
-    expect(page).to have_content "A very nice building"
     expect(page).to have_content "Add Building"
   end
 
 
-  scenario "An associate does not specify all the required information when enterting a buildings"
+  scenario "An associate does not specify all the required information when enterting a buildings" do
+    visit 'buildings/new'
+    click_button "Add Building"
 
-  scenario "An associate can only select US states"
+    expect(page).to have_content "can't be blank"
+  end
 
-  scenario "An associate can optionally specify a description of the building"
 
-  scenario "After creating a building an associate is redirected to record another building"
+  scenario "An associate can only select US states" do
+    page.has_select?('State', with_options: ['Maine', 'New York', 'Wyoming'])
+  end
+
+  scenario "An associate can optionally specify a description of the building" do
+    visit 'buildings/new'
+    fill_in "Address", with: "33 Harrison Ave"
+    fill_in "City", with: "Boston"
+    select "Massachusetts", from: "State"
+    fill_in "Zip Code", with: "02111"
+    click_button "Add Building"
+
+    expect(page).to have_content "Building was created successfully"
+    expect(page).to have_content "Add Building"
+  end
+
+  scenario "After creating a building an associate is redirected to record another building" do
+    visit 'buildings/new'
+    fill_in "Address", with: "33 Harrison Ave"
+    fill_in "City", with: "Boston"
+    select "Massachusetts", from: "State"
+    fill_in "Zip Code", with: "02111"
+    click_button "Add Building"
+
+    current_path.should eq "/buildings/new"
+  end
 
 
 end
