@@ -2,9 +2,9 @@
 
 FactoryGirl.define do
   factory :owner do
-    first_name "MyString"
-    last_name "MyString"
-    email "MyString"
-    company "MyString"
+    first_name "Paul"
+    last_name "Dornfeld"
+    email "pdornfel@example.com"
+    company "Launch Academy"
   end
 end

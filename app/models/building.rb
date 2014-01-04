@@ -6,6 +6,8 @@ class Building < ActiveRecord::Base
   validates_presence_of :zip_code
   validates :zip_code, length: { is: 5 }
 
+  belongs_to :owner
+
 
   def us_states
     [

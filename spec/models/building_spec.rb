@@ -10,5 +10,7 @@ describe Building do
   it { should have_valid(:zip_code).when('02111', '02478') }
   it { should_not have_valid(:zip_code).when(nil, '021', '11111111') }
 
+  it { should belong_to :owner }
+
 
 end

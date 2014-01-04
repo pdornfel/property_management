@@ -3,8 +3,9 @@
 <%= simple_form_for @building do |f| %>
   <%= f.input :address %><br>
   <%= f.input :city %><br>
-  <%= f.input :state, collection: @building.us_states  %><br>
+  <%= f.input :state, collection: @building.us_states %><br>
   <%= f.input :zip_code, label: "Zip Code" %><br>
+  <%= f.association :owner, collection: Owner.all, label_method: :first_name, prompt: "Choose an owner"  %><br>
   <%= f.input :description %><br>
   <%= f.button :submit, "Add Building" %><br>
 <% end %>
