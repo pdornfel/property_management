@@ -61,5 +61,12 @@ feature "An associate can add a building", %Q{
     current_path.should eq "/buildings/new"
   end
 
+  scenario "visiting root path displays navigation bar" do
+    visit root_path
+    expect(page).to have_content "All Buildings"
+    expect(page).to have_content "Add Buildings"
+    expect(page).to have_content "All Owners"
+    expect(page).to have_content "Add Owners"
+  end
 
 end

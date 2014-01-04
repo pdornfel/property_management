@@ -1,5 +1,7 @@
 PropertyManagement::Application.routes.draw do
 
+  root to: 'buildings#new'
+
   resources :buildings, :owners
 
   # The priority is based upon order of creation: first created -> highest priority.

@@ -1,5 +1,9 @@
 class OwnersController < ApplicationController
 
+  def index
+    @owners = Owner.all
+  end
+
   def new
     @owner = Owner.new
   end

@@ -1,0 +1,17 @@
+<h1>All Buildings</h1>
+
+<h3><%= "Total number of buildings: #{@buildings.count}"  %></h3>
+<br>
+
+<% @buildings.each do |building| %>
+
+  <%= building.address %><br>
+  <%= building.city %><br>
+  <%= building.state %><br>
+  <%= building.zip_code %><br>
+  <% if building.owner %>
+      <%= "Owner: #{building.owner.first_name} #{building.owner.last_name}" %><br>
+  <% else %>
+      <%= "Owner: not assigned" %><br>
+  <% end %><br>
+<% end %><br>

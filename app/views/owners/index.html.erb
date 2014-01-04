@@ -1,0 +1,10 @@
+<h1>All Owners</h1>
+
+<h2><%= "Total number of owners: #{@owners.count}" %></h2>
+
+<% @owners.each do |owner| %>
+    <%= owner.first_name %><btr>
+    <%= owner.last_name %><br>
+    <%= owner.email %><br>
+    <%= "Company:  #{owner.company}" %><br><br>
+<% end %>
