@@ -15,10 +15,10 @@ feature "An associate can add a building", %Q{
 
   scenario "An associate enters all valid and required information" do
     visit 'buildings/new'
-    fill_in "Street Address", with: "33 Harrison Ave"
+    fill_in "Address", with: "33 Harrison Ave"
     fill_in "City", with: "Boston"
     select "Massachusetts", from: "State"
-    fill_in "Postal Code", with: "02111"
+    fill_in "Zip Code", with: "02111"
     fill_in "Description", with: "A very nice building"
     click_button "Add Building"
 
